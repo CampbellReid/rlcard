@@ -1,17 +1,17 @@
 '''
-    File name: models/bridge_rule_models.py
-    Author: William Hale
-    Date created: 11/27/2021
+    File name: models/five_hundred_rule_models.py
+    Author: Campbell Reid
+    Date created: 2024/11/06
 
-    Bridge rule models
+    Five Hundred rule models
 '''
 
 import numpy as np
 
-from rlcard.games.bridge.utils.action_event import ActionEvent
+from rlcard.games.five_hundred.utils.action_event import ActionEvent
 
 
-class BridgeDefenderNoviceRuleAgent(object):
+class FiveHundredDefenderNoviceRuleAgent(object):
     '''
         Agent always passes during bidding
     '''
