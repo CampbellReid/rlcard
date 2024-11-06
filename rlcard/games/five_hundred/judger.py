@@ -16,7 +16,7 @@ from .utils.move import MakeBidMove, MakeDblMove, MakeRdblMove
 from .utils.five_hundred_card import FiveHundredCard
 
 
-class BridgeJudger:
+class FiveHundredJudger:
 
     '''
         Judger decides legal actions for current player

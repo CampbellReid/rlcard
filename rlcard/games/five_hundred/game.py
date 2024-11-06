@@ -8,7 +8,7 @@ from typing import List
 
 import numpy as np
 
-from .judger import BridgeJudger
+from .judger import FiveHundredJudger
 from .round import BridgeRound
 from .utils.action_event import ActionEvent, CallActionEvent, PlayCardAction
 
@@ -22,7 +22,7 @@ class FiveHundredGame:
         '''
         self.allow_step_back: bool = allow_step_back
         self.np_random = np.random.RandomState()
-        self.judger: BridgeJudger = BridgeJudger(game=self)
+        self.judger: FiveHundredJudger = FiveHundredJudger(game=self)
         self.actions: [ActionEvent] = []  # must reset in init_game
         self.round: BridgeRound or None = None  # must reset in init_game
         self.num_players: int = 4
