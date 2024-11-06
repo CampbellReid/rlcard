@@ -9,7 +9,7 @@
 #
 
 from .action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction, PlayCardAction
-from .bridge_card import BridgeCard
+from .five_hundred_card import BridgeCard
 
 from ..player import BridgePlayer
 

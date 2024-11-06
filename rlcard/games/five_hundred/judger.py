@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 from .utils.action_event import PlayCardAction
 from .utils.action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction
 from .utils.move import MakeBidMove, MakeDblMove, MakeRdblMove
-from .utils.bridge_card import BridgeCard
+from .utils.five_hundred_card import BridgeCard
 
 
 class BridgeJudger:

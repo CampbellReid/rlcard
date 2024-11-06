@@ -6,7 +6,7 @@
 
 from typing import List
 
-from .utils.bridge_card import BridgeCard
+from .utils.five_hundred_card import BridgeCard
 
 
 class BridgePlayer:

@@ -8,7 +8,7 @@ from typing import List
 
 import numpy as np
 
-from .bridge_card import BridgeCard
+from .five_hundred_card import BridgeCard
 
 
 def encode_cards(cards: List[BridgeCard]) -> np.ndarray:  # Note: not used ??
