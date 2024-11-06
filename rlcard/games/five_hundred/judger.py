@@ -8,7 +8,7 @@ from typing import List
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .game import BridgeGame
+    from .game import FiveHundredGame
 
 from .utils.action_event import PlayCardAction
 from .utils.action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction
@@ -22,11 +22,11 @@ class BridgeJudger:
         Judger decides legal actions for current player
     '''
 
-    def __init__(self, game: 'BridgeGame'):
+    def __init__(self, game: 'FiveHundredGame'):
         ''' Initialize the class BridgeJudger
         :param game: BridgeGame
         '''
-        self.game: BridgeGame = game
+        self.game: FiveHundredGame = game
 
     def get_legal_actions(self) -> List[ActionEvent]:
         """

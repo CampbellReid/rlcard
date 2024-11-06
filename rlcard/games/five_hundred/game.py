@@ -13,7 +13,7 @@ from .round import BridgeRound
 from .utils.action_event import ActionEvent, CallActionEvent, PlayCardAction
 
 
-class BridgeGame:
+class FiveHundredGame:
     ''' Game class. This class will interact with outer environment.
     '''
 
