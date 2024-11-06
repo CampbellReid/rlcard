@@ -6,7 +6,7 @@
 
 from typing import List
 
-from .utils.five_hundred_card import BridgeCard
+from .utils.five_hundred_card import FiveHundredCard
 
 
 class BridgePlayer:
@@ -21,9 +21,9 @@ class BridgePlayer:
             raise Exception(f'BridgePlayer has invalid player_id: {player_id}')
         self.np_random = np_random
         self.player_id: int = player_id
-        self.hand: List[BridgeCard] = []
+        self.hand: List[FiveHundredCard] = []
 
-    def remove_card_from_hand(self, card: BridgeCard):
+    def remove_card_from_hand(self, card: FiveHundredCard):
         self.hand.remove(card)
 
     def __str__(self):

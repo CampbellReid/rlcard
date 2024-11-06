@@ -9,7 +9,7 @@
 #
 
 from .action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction, PlayCardAction
-from .five_hundred_card import BridgeCard
+from .five_hundred_card import FiveHundredCard
 
 from ..player import BridgePlayer
 
@@ -34,7 +34,7 @@ class CallMove(PlayerMove):  # Interface
 
 class DealHandMove(BridgeMove):
 
-    def __init__(self, dealer: BridgePlayer, shuffled_deck: [BridgeCard]):
+    def __init__(self, dealer: BridgePlayer, shuffled_deck: [FiveHundredCard]):
         super().__init__()
         self.dealer = dealer
         self.shuffled_deck = shuffled_deck

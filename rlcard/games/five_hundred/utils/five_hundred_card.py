@@ -7,7 +7,7 @@
 from rlcard.games.base import Card
 
 
-class BridgeCard(Card):
+class FiveHundredCard(Card):
 
     suits = ['C', 'D', 'H', 'S']
     ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
@@ -22,8 +22,8 @@ class BridgeCard(Card):
 
     def __init__(self, suit: str, rank: str):
         super().__init__(suit=suit, rank=rank)
-        suit_index = BridgeCard.suits.index(self.suit)
-        rank_index = BridgeCard.ranks.index(self.rank)
+        suit_index = FiveHundredCard.suits.index(self.suit)
+        rank_index = FiveHundredCard.ranks.index(self.rank)
         self.card_id = 13 * suit_index + rank_index
 
     def __str__(self):
@@ -34,4 +34,4 @@ class BridgeCard(Card):
 
 
 # deck is always in order from 2C, ... KC, AC, 2D, ... KD, AD, 2H, ... KH, AH, 2S, ... KS, AS
-_deck = [BridgeCard(suit=suit, rank=rank) for suit in BridgeCard.suits for rank in BridgeCard.ranks]  # want this to be read-only
+_deck = [FiveHundredCard(suit=suit, rank=rank) for suit in FiveHundredCard.suits for rank in FiveHundredCard.ranks]  # want this to be read-only

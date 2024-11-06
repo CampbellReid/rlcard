@@ -4,7 +4,7 @@
     Date created: 11/25/2021
 '''
 
-from .five_hundred_card import BridgeCard
+from .five_hundred_card import FiveHundredCard
 
 # ====================================
 # Action_ids:
@@ -42,7 +42,7 @@ class ActionEvent(object):  # Interface
         elif ActionEvent.first_bid_action_id <= action_id <= 35:
             bid_amount = 1 + (action_id - ActionEvent.first_bid_action_id) // 5
             bid_suit_id = (action_id - ActionEvent.first_bid_action_id) % 5
-            bid_suit = BridgeCard.suits[bid_suit_id] if bid_suit_id < 4 else None
+            bid_suit = FiveHundredCard.suits[bid_suit_id] if bid_suit_id < 4 else None
             return BidAction(bid_amount, bid_suit)
         elif action_id == ActionEvent.dbl_action_id:
             return DblAction()
@@ -50,7 +50,7 @@ class ActionEvent(object):  # Interface
             return RdblAction()
         elif ActionEvent.first_play_card_action_id <= action_id < ActionEvent.first_play_card_action_id + 52:
             card_id = action_id - ActionEvent.first_play_card_action_id
-            card = BridgeCard.card(card_id=card_id)
+            card = FiveHundredCard.card(card_id=card_id)
             return PlayCardAction(card=card)
         else:
             raise Exception(f'ActionEvent from_action_id: invalid action_id={action_id}')
@@ -81,7 +81,7 @@ class PassAction(CallActionEvent):
 class BidAction(CallActionEvent):
 
     def __init__(self, bid_amount: int, bid_suit: str or None):
-        suits = BridgeCard.suits
+        suits = FiveHundredCard.suits
         if bid_suit and bid_suit not in suits:
             raise Exception(f'BidAction has invalid suit: {bid_suit}')
         if bid_suit in suits:
@@ -129,10 +129,10 @@ class RdblAction(CallActionEvent):
 
 class PlayCardAction(ActionEvent):
 
-    def __init__(self, card: BridgeCard):
+    def __init__(self, card: FiveHundredCard):
         play_card_action_id = ActionEvent.first_play_card_action_id + card.card_id
         super().__init__(action_id=play_card_action_id)
-        self.card: BridgeCard = card
+        self.card: FiveHundredCard = card
 
     def __str__(self):
         return f"{self.card}"

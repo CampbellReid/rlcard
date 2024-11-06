@@ -8,10 +8,10 @@ from typing import List
 
 import numpy as np
 
-from .five_hundred_card import BridgeCard
+from .five_hundred_card import FiveHundredCard
 
 
-def encode_cards(cards: List[BridgeCard]) -> np.ndarray:  # Note: not used ??
+def encode_cards(cards: List[FiveHundredCard]) -> np.ndarray:  # Note: not used ??
     plane = np.zeros(52, dtype=int)
     for card in cards:
         plane[card.card_id] = 1

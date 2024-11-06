@@ -7,7 +7,7 @@
 from typing import List
 
 from .player import BridgePlayer
-from .utils.five_hundred_card import BridgeCard
+from .utils.five_hundred_card import FiveHundredCard
 
 
 class BridgeDealer:
@@ -17,9 +17,9 @@ class BridgeDealer:
         ''' set shuffled_deck, set stock_pile
         '''
         self.np_random = np_random
-        self.shuffled_deck: List[BridgeCard] = BridgeCard.get_deck()  # keep a copy of the shuffled cards at start of new hand
+        self.shuffled_deck: List[FiveHundredCard] = FiveHundredCard.get_deck()  # keep a copy of the shuffled cards at start of new hand
         self.np_random.shuffle(self.shuffled_deck)
-        self.stock_pile: List[BridgeCard] = self.shuffled_deck.copy()
+        self.stock_pile: List[FiveHundredCard] = self.shuffled_deck.copy()
 
     def deal_cards(self, player: BridgePlayer, num: int):
         ''' Deal some cards from stock_pile to one player

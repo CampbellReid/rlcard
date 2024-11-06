@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 from .utils.action_event import PlayCardAction
 from .utils.action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction
 from .utils.move import MakeBidMove, MakeDblMove, MakeRdblMove
-from .utils.five_hundred_card import BridgeCard
+from .utils.five_hundred_card import FiveHundredCard
 
 
 class BridgeJudger:
@@ -62,7 +62,7 @@ class BridgeJudger:
                 hand = self.game.round.players[current_player.player_id].hand
                 legal_cards = hand
                 if trick_moves and len(trick_moves) < 4:
-                    led_card: BridgeCard = trick_moves[0].card
+                    led_card: FiveHundredCard = trick_moves[0].card
                     cards_of_led_suit = [card for card in hand if card.suit == led_card.suit]
                     if cards_of_led_suit:
                         legal_cards = cards_of_led_suit
