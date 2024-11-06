@@ -4,7 +4,7 @@
     Date created: 11/25/2021
 '''
 
-from typing import List
+from typing import List, Optional
 
 from .dealer import BridgeDealer
 from .player import BridgePlayer
@@ -71,7 +71,7 @@ class BridgeRound:
         self.current_player_id: int = dealer_id
         self.doubling_cube: int = 1
         self.play_card_count: int = 0
-        self.contract_bid_move: MakeBidMove or None = None
+        self.contract_bid_move: Optional[MakeBidMove] = None
         self.won_trick_counts = [0, 0]  # count of won tricks by side
         self.move_sheet: List[BridgeMove] = []
         self.move_sheet.append(DealHandMove(dealer=self.players[dealer_id], shuffled_deck=self.dealer.shuffled_deck))
@@ -109,7 +109,7 @@ class BridgeRound:
                     break
         return is_over
 
-    def get_current_player(self) -> BridgePlayer or None:
+    def get_current_player(self) -> Optional[BridgePlayer]:
         current_player_id = self.current_player_id
         return None if current_player_id is None else self.players[current_player_id]
 
@@ -127,7 +127,7 @@ class BridgeRound:
                     raise Exception(f'get_trick_moves: count of trick_moves={[str(move.card) for move in trick_moves]} does not equal {trick_pile_count}')
         return trick_moves
 
-    def get_trump_suit(self) -> str or None:
+    def get_trump_suit(self) -> Optional[str]:
         trump_suit = None
         if self.contract_bid_move:
             trump_suit = self.contract_bid_move.action.bid_suit
@@ -183,7 +183,7 @@ class BridgeRound:
         else:
             self.current_player_id = (self.current_player_id + 1) % 4
 
-    def get_declarer(self) -> BridgePlayer or None:
+    def get_declarer(self) -> Optional[BridgePlayer]:
         declarer = None
         if self.contract_bid_move:
             trump_suit = self.contract_bid_move.action.bid_suit
@@ -194,21 +194,21 @@ class BridgeRound:
                     break
         return declarer
 
-    def get_dummy(self) -> BridgePlayer or None:
+    def get_dummy(self) -> Optional[BridgePlayer]:
         dummy = None
         declarer = self.get_declarer()
         if declarer:
             dummy = self.players[(declarer.player_id + 2) % 4]
         return dummy
 
-    def get_left_defender(self) -> BridgePlayer or None:
+    def get_left_defender(self) -> Optional[BridgePlayer]:
         left_defender = None
         declarer = self.get_declarer()
         if declarer:
             left_defender = self.players[(declarer.player_id + 1) % 4]
         return left_defender
 
-    def get_right_defender(self) -> BridgePlayer or None:
+    def get_right_defender(self) -> Optional[BridgePlayer]:
         right_defender = None
         declarer = self.get_declarer()
         if declarer:

@@ -4,6 +4,7 @@
     Date created: 11/25/2021
 '''
 
+from typing import Optional
 from .five_hundred_card import FiveHundredCard
 
 # ====================================
@@ -80,7 +81,7 @@ class PassAction(CallActionEvent):
 
 class BidAction(CallActionEvent):
 
-    def __init__(self, bid_amount: int, bid_suit: str or None):
+    def __init__(self, bid_amount: int, bid_suit: Optional[str]):
         suits = FiveHundredCard.suits
         if bid_suit and bid_suit not in suits:
             raise Exception(f'BidAction has invalid suit: {bid_suit}')
