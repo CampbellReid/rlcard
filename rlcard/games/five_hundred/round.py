@@ -6,7 +6,7 @@
 
 from typing import List, Optional
 
-from .dealer import BridgeDealer
+from .dealer import FiveHundredDealer
 from .player import FiveHundredPlayer
 
 from .utils.action_event import CallActionEvent, PassAction, DblAction, RdblAction, BidAction, PlayCardAction
@@ -64,7 +64,7 @@ class BridgeRound:
         dealer_id = tray.dealer_id
         self.tray = tray
         self.np_random = np_random
-        self.dealer: BridgeDealer = BridgeDealer(self.np_random)
+        self.dealer: FiveHundredDealer = FiveHundredDealer(self.np_random)
         self.players: List[FiveHundredPlayer] = []
         for player_id in range(num_players):
             self.players.append(FiveHundredPlayer(player_id=player_id, np_random=self.np_random))

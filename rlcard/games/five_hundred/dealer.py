@@ -10,7 +10,7 @@ from .player import FiveHundredPlayer
 from .utils.five_hundred_card import FiveHundredCard
 
 
-class BridgeDealer:
+class FiveHundredDealer:
     ''' Initialize a BridgeDealer dealer class
     '''
     def __init__(self, np_random):
