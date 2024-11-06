@@ -4,7 +4,7 @@
     Date created: 11/25/2021
 '''
 
-from .bridge_card import BridgeCard
+from .five_hundred_card import BridgeCard
 
 # ====================================
 # Action_ids:
