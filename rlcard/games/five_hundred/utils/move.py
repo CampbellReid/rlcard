@@ -14,11 +14,11 @@ from .five_hundred_card import FiveHundredCard
 from ..player import FiveHundredPlayer
 
 
-class BridgeMove(object):  # Interface
+class FiveHundredMove(object):  # Interface
     pass
 
 
-class PlayerMove(BridgeMove):  # Interface
+class PlayerMove(FiveHundredMove):  # Interface
 
     def __init__(self, player: FiveHundredPlayer, action: ActionEvent):
         super().__init__()
@@ -32,7 +32,7 @@ class CallMove(PlayerMove):  # Interface
         super().__init__(player=player, action=action)
 
 
-class DealHandMove(BridgeMove):
+class DealHandMove(FiveHundredMove):
 
     def __init__(self, dealer: FiveHundredPlayer, shuffled_deck: [FiveHundredCard]):
         super().__init__()

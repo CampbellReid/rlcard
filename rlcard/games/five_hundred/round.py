@@ -10,7 +10,7 @@ from .dealer import BridgeDealer
 from .player import FiveHundredPlayer
 
 from .utils.action_event import CallActionEvent, PassAction, DblAction, RdblAction, BidAction, PlayCardAction
-from .utils.move import BridgeMove, DealHandMove, PlayCardMove, MakeBidMove, MakePassMove, MakeDblMove, MakeRdblMove, CallMove
+from .utils.move import FiveHundredMove, DealHandMove, PlayCardMove, MakeBidMove, MakePassMove, MakeDblMove, MakeRdblMove, CallMove
 from .utils.tray import Tray
 
 
@@ -73,7 +73,7 @@ class BridgeRound:
         self.play_card_count: int = 0
         self.contract_bid_move: Optional[MakeBidMove] = None
         self.won_trick_counts = [0, 0]  # count of won tricks by side
-        self.move_sheet: List[BridgeMove] = []
+        self.move_sheet: List[FiveHundredMove] = []
         self.move_sheet.append(DealHandMove(dealer=self.players[dealer_id], shuffled_deck=self.dealer.shuffled_deck))
 
     def is_bidding_over(self) -> bool:
