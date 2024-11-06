@@ -11,7 +11,7 @@
 from .action_event import ActionEvent, BidAction, PassAction, DblAction, RdblAction, PlayCardAction
 from .five_hundred_card import FiveHundredCard
 
-from ..player import BridgePlayer
+from ..player import FiveHundredPlayer
 
 
 class BridgeMove(object):  # Interface
@@ -20,7 +20,7 @@ class BridgeMove(object):  # Interface
 
 class PlayerMove(BridgeMove):  # Interface
 
-    def __init__(self, player: BridgePlayer, action: ActionEvent):
+    def __init__(self, player: FiveHundredPlayer, action: ActionEvent):
         super().__init__()
         self.player = player
         self.action = action
@@ -28,13 +28,13 @@ class PlayerMove(BridgeMove):  # Interface
 
 class CallMove(PlayerMove):  # Interface
 
-    def __init__(self, player: BridgePlayer, action: ActionEvent):
+    def __init__(self, player: FiveHundredPlayer, action: ActionEvent):
         super().__init__(player=player, action=action)
 
 
 class DealHandMove(BridgeMove):
 
-    def __init__(self, dealer: BridgePlayer, shuffled_deck: [FiveHundredCard]):
+    def __init__(self, dealer: FiveHundredPlayer, shuffled_deck: [FiveHundredCard]):
         super().__init__()
         self.dealer = dealer
         self.shuffled_deck = shuffled_deck
@@ -46,7 +46,7 @@ class DealHandMove(BridgeMove):
 
 class MakePassMove(CallMove):
 
-    def __init__(self, player: BridgePlayer):
+    def __init__(self, player: FiveHundredPlayer):
         super().__init__(player=player, action=PassAction())
 
     def __str__(self):
@@ -55,7 +55,7 @@ class MakePassMove(CallMove):
 
 class MakeDblMove(CallMove):
 
-    def __init__(self, player: BridgePlayer):
+    def __init__(self, player: FiveHundredPlayer):
         super().__init__(player=player, action=DblAction())
 
     def __str__(self):
@@ -64,7 +64,7 @@ class MakeDblMove(CallMove):
 
 class MakeRdblMove(CallMove):
 
-    def __init__(self, player: BridgePlayer):
+    def __init__(self, player: FiveHundredPlayer):
         super().__init__(player=player, action=RdblAction())
 
     def __str__(self):
@@ -73,7 +73,7 @@ class MakeRdblMove(CallMove):
 
 class MakeBidMove(CallMove):
 
-    def __init__(self, player: BridgePlayer, bid_action: BidAction):
+    def __init__(self, player: FiveHundredPlayer, bid_action: BidAction):
         super().__init__(player=player, action=bid_action)
         self.action = bid_action  # Note: keep type as BidAction rather than ActionEvent
 
@@ -83,7 +83,7 @@ class MakeBidMove(CallMove):
 
 class PlayCardMove(PlayerMove):
 
-    def __init__(self, player: BridgePlayer, action: PlayCardAction):
+    def __init__(self, player: FiveHundredPlayer, action: PlayCardAction):
         super().__init__(player=player, action=action)
         self.action = action  # Note: keep type as PlayCardAction rather than ActionEvent
 

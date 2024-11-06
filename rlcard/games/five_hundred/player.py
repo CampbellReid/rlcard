@@ -9,7 +9,7 @@ from typing import List
 from .utils.five_hundred_card import FiveHundredCard
 
 
-class BridgePlayer:
+class FiveHundredPlayer:
 
     def __init__(self, player_id: int, np_random):
         ''' Initialize a BridgePlayer player class
