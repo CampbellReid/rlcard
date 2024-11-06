@@ -1,7 +1,11 @@
 '''
-    File name: envs/bridge.py
-    Author: William Hale
+    Original file name: envs/bridge.py
+    Original Author: William Hale
     Date created: 11/26/2021
+    
+    File name: envs/five_hundred.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 import numpy as np

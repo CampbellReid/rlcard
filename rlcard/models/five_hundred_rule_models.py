@@ -1,7 +1,11 @@
 '''
+    Original file name: models/bridge_rule_models.py
+    Original Author: William Hale
+    Date created: 11/27/2021
+
     File name: models/five_hundred_rule_models.py
-    Author: Campbell Reid
-    Date created: 2024/11/06
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 
     Five Hundred rule models
 '''

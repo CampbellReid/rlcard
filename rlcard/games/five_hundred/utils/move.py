@@ -1,7 +1,11 @@
 '''
-    File name: bridge/utils/move.py
-    Author: William Hale
+    Original file name: bridge/utils/move.py
+    Original Author: William Hale
     Date created: 11/25/2021
+    
+    File name: five_hundred/utils/move.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 #

@@ -1,7 +1,11 @@
 '''
-    File name: bridge/utils/action_event.py
-    Author: William Hale
+    Original file name: bridge/utils/action_event.py
+    Original Author: William Hale
     Date created: 11/25/2021
+    
+    File name: five_hundred/utils/action_event.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 from typing import Optional

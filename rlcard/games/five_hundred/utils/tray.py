@@ -1,7 +1,11 @@
 '''
-    File name: bridge/utils/tray.py
-    Author: William Hale
+    Original file name: bridge/utils/tray.py
+    Original Author: William Hale
     Date created: 11/28/2021
+    
+    File name: five_hundred/utils/tray.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 

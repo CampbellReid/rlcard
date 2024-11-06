@@ -1,7 +1,11 @@
 '''
-    File name: bridge/dealer.py
-    Author: William Hale
+    Original file name: bridge/dealer.py
+    Original Author: William Hale
     Date created: 11/25/2021
+    
+    File name: five_hundred/dealer.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 from typing import List

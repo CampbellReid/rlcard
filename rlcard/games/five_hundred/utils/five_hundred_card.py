@@ -1,7 +1,11 @@
 '''
-    File name: bridge/utils/bridge_card.py
-    Author: William Hale
+    Original file name: bridge/utils/bridge_card.py
+    Original Author: William Hale
     Date created: 11/25/2021
+    
+    File name: five_hundred/utils/five_hundred_card.py
+    Modified by: Campbell Reid
+    Date modified: 2024-11-06
 '''
 
 from rlcard.games.base import Card
