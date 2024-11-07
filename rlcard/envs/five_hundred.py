@@ -45,7 +45,7 @@ from rlcard.games.bridge.utils.move import CallMove, PlayCardMove
 #
 
 
-class BridgeEnv(Env):
+class FiveHundredEnv(Env):
     ''' Bridge Environment
     '''
     def __init__(self, config):
