@@ -13,12 +13,12 @@ from collections import OrderedDict
 
 from rlcard.envs import Env
 
-from rlcard.games.bridge import Game
+from rlcard.games.five_hundred import Game
 
-from rlcard.games.bridge.game import BridgeGame
-from rlcard.games.bridge.utils.action_event import ActionEvent
-from rlcard.games.bridge.utils.bridge_card import BridgeCard
-from rlcard.games.bridge.utils.move import CallMove, PlayCardMove
+from rlcard.games.five_hundred.game import FiveHundredGame
+from rlcard.games.five_hundred.utils.action_event import ActionEvent
+from rlcard.games.five_hundred.utils.five_hundred_card import FiveHundredCard
+from rlcard.games.five_hundred.utils.move import CallMove, PlayCardMove
 
 #   [] Why no_bid_action_id in bidding_rep ?
 #       It allows the bidding always to start with North.
@@ -46,15 +46,15 @@ from rlcard.games.bridge.utils.move import CallMove, PlayCardMove
 
 
 class FiveHundredEnv(Env):
-    ''' Bridge Environment
+    ''' Five Hundred Environment
     '''
     def __init__(self, config):
-        self.name = 'bridge'
+        self.name = 'five_hundred'
         self.game = Game()
         super().__init__(config=config)
-        self.bridgePayoffDelegate = DefaultBridgePayoffDelegate()
-        self.bridgeStateExtractor = DefaultBridgeStateExtractor()
-        state_shape_size = self.bridgeStateExtractor.get_state_shape_size()
+        self.fiveHundredPayoffDelegate = DefaultFiveHundredPayoffDelegate()
+        self.fiveHundredStateExtractor = DefaultFiveHundredStateExtractor()
+        state_shape_size = self.fiveHundredStateExtractor.get_state_shape_size()
         self.state_shape = [[1, state_shape_size] for _ in range(self.num_players)]
         self.action_shape = [None for _ in range(self.num_players)]
 
@@ -64,7 +64,7 @@ class FiveHundredEnv(Env):
         Returns:
             (list): A list of payoffs for each player.
         '''
-        return self.bridgePayoffDelegate.get_payoffs(game=self.game)
+        return self.fiveHundredPayoffDelegate.get_payoffs(game=self.game)
 
     def get_perfect_information(self):
         ''' Get the perfect information of the current state
@@ -83,7 +83,7 @@ class FiveHundredEnv(Env):
         Returns:
             (numpy.array): The extracted state
         '''
-        return self.bridgeStateExtractor.extract_state(game=self.game)
+        return self.fiveHundredStateExtractor.extract_state(game=self.game)
 
     def _decode_action(self, action_id):
         ''' Decode Action id to the action in the game.
@@ -105,9 +105,9 @@ class FiveHundredEnv(Env):
         raise NotImplementedError  # wch: not needed
 
 
-class BridgePayoffDelegate(object):
+class FiveHundredPayoffDelegate(object):
 
-    def get_payoffs(self, game: BridgeGame):
+    def get_payoffs(self, game: FiveHundredGame):
         ''' Get the payoffs of players. Must be implemented in the child class.
 
         Returns:
@@ -118,12 +118,12 @@ class BridgePayoffDelegate(object):
         raise NotImplementedError
 
 
-class DefaultBridgePayoffDelegate(BridgePayoffDelegate):
+class DefaultFiveHundredPayoffDelegate(FiveHundredPayoffDelegate):
 
     def __init__(self):
         self.make_bid_bonus = 2
 
-    def get_payoffs(self, game: BridgeGame):
+    def get_payoffs(self, game: FiveHundredGame):
         ''' Get the payoffs of players.
 
         Returns:
@@ -147,16 +147,16 @@ class DefaultBridgePayoffDelegate(BridgePayoffDelegate):
         return np.array(payoffs)
 
 
-class BridgeStateExtractor(object):  # interface
+class FiveHundredStateExtractor(object):  # interface
 
     def get_state_shape_size(self) -> int:
         raise NotImplementedError
 
-    def extract_state(self, game: BridgeGame):
+    def extract_state(self, game: FiveHundredGame):
         ''' Extract useful information from state for RL. Must be implemented in the child class.
 
         Args:
-            game (BridgeGame): The game
+            game (FiveHundredGame): The game
 
         Returns:
             (numpy.array): The extracted state
@@ -164,7 +164,7 @@ class BridgeStateExtractor(object):  # interface
         raise NotImplementedError
 
     @staticmethod
-    def get_legal_actions(game: BridgeGame):
+    def get_legal_actions(game: FiveHundredGame):
         ''' Get all legal actions for current state.
 
         Returns:
@@ -175,7 +175,7 @@ class BridgeStateExtractor(object):  # interface
         return OrderedDict(legal_actions_ids)
 
 
-class DefaultBridgeStateExtractor(BridgeStateExtractor):
+class DefaultFiveHundredStateExtractor(FiveHundredStateExtractor):
 
     def __init__(self):
         super().__init__()
@@ -197,11 +197,11 @@ class DefaultBridgeStateExtractor(BridgeStateExtractor):
         state_shape_size += 5  # trump_suit_rep_size
         return state_shape_size
 
-    def extract_state(self, game: BridgeGame):
+    def extract_state(self, game: FiveHundredGame):
         ''' Extract useful information from state for RL.
 
         Args:
-            game (BridgeGame): The game
+            game (FiveHundredGame): The game
 
         Returns:
             (numpy.array): The extracted state
@@ -290,7 +290,7 @@ class DefaultBridgeStateExtractor(BridgeStateExtractor):
             if contract_bid_move:
                 bid_amount_rep[contract_bid_move.action.bid_amount] = 1
                 bid_suit = contract_bid_move.action.bid_suit
-                bid_suit_index = 4 if not bid_suit else BridgeCard.suits.index(bid_suit)
+                bid_suit_index = 4 if not bid_suit else FiveHundredCard.suits.index(bid_suit)
                 trump_suit_rep[bid_suit_index] = 1
 
         rep = []
