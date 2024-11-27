@@ -32,7 +32,7 @@ env.set_agents([
     random_agent_3,
 ])
 
-print(">> Blackjack human agent")
+print(">> Five Hundred human agent")
 
 while (True):
     print(">> Start a new game")
