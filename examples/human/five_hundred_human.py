@@ -8,13 +8,13 @@
 
 import rlcard
 from rlcard.agents import RandomAgent as RandomAgent
-from rlcard.agents import BlackjackHumanAgent as HumanAgent
+from rlcard.agents import FivehundredHumanAgent as HumanAgent
 from rlcard.utils.utils import print_card
 
 # Make environment
-num_players = 2
+num_players = 4
 env = rlcard.make(
-    'blackjack',
+    'five_hundred',
     config={
         'game_num_players': num_players,
     },
