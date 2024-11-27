@@ -20,10 +20,16 @@ env = rlcard.make(
     },
 )
 human_agent = HumanAgent(env.num_actions)
-random_agent = RandomAgent(env.num_actions)
+
+random_agent_1 = RandomAgent(env.num_actions)
+random_agent_2 = RandomAgent(env.num_actions)
+random_agent_3 = RandomAgent(env.num_actions)
+
 env.set_agents([
     human_agent,
-    random_agent,
+    random_agent_1,
+    random_agent_2,
+    random_agent_3,
 ])
 
 print(">> Blackjack human agent")
