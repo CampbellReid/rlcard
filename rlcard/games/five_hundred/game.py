@@ -8,7 +8,7 @@
     Date modified: 2024-11-06
 '''
 
-from typing import List
+from typing import List, Optional
 
 import numpy as np
 
@@ -27,8 +27,8 @@ class FiveHundredGame:
         self.allow_step_back: bool = allow_step_back
         self.np_random = np.random.RandomState()
         self.judger: FiveHundredJudger = FiveHundredJudger(game=self)
-        self.actions: [ActionEvent] = []  # must reset in init_game
-        self.round: FiveHundredRound or None = None  # must reset in init_game
+        self.actions: List[ActionEvent] = []  # must reset in init_game
+        self.round: Optional[FiveHundredRound] = None  # must reset in init_game
         self.num_players: int = 4
 
     def init_game(self):
