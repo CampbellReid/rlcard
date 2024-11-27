@@ -13,7 +13,7 @@ from typing import List
 import numpy as np
 
 from .judger import FiveHundredJudger
-from .round import BridgeRound
+from .round import FiveHundredRound
 from .utils.action_event import ActionEvent, CallActionEvent, PlayCardAction
 
 
@@ -22,13 +22,13 @@ class FiveHundredGame:
     '''
 
     def __init__(self, allow_step_back=False):
-        '''Initialize the class BridgeGame
+        '''Initialize the class FiveHundredGame
         '''
         self.allow_step_back: bool = allow_step_back
         self.np_random = np.random.RandomState()
         self.judger: FiveHundredJudger = FiveHundredJudger(game=self)
         self.actions: [ActionEvent] = []  # must reset in init_game
-        self.round: BridgeRound or None = None  # must reset in init_game
+        self.round: FiveHundredRound or None = None  # must reset in init_game
         self.num_players: int = 4
 
     def init_game(self):
@@ -36,7 +36,7 @@ class FiveHundredGame:
         '''
         board_id = self.np_random.choice([1, 2, 3, 4])
         self.actions: List[ActionEvent] = []
-        self.round = BridgeRound(num_players=self.num_players, board_id=board_id, np_random=self.np_random)
+        self.round = FiveHundredRound(num_players=self.num_players, board_id=board_id, np_random=self.np_random)
         for player_id in range(4):
             player = self.round.players[player_id]
             self.round.dealer.deal_cards(player=player, num=13)

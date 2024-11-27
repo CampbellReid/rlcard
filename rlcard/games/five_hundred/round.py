@@ -18,7 +18,7 @@ from .utils.move import FiveHundredMove, DealHandMove, PlayCardMove, MakeBidMove
 from .utils.tray import Tray
 
 
-class BridgeRound:
+class FiveHundredRound:
 
     @property
     def dealer_id(self) -> int:
