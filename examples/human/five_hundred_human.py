@@ -14,7 +14,7 @@ from rlcard.utils.utils import print_card
 # Make environment
 num_players = 4
 env = rlcard.make(
-    'five_hundred',
+    'five-hundred',
     config={
         'game_num_players': num_players,
     },

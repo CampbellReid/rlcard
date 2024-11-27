@@ -49,7 +49,7 @@ class FiveHundredEnv(Env):
     ''' Five Hundred Environment
     '''
     def __init__(self, config):
-        self.name = 'five_hundred'
+        self.name = 'five-hundred'
         self.game = Game()
         super().__init__(config=config)
         self.fiveHundredPayoffDelegate = DefaultFiveHundredPayoffDelegate()
